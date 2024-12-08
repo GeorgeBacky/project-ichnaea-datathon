@@ -183,7 +183,7 @@ export default function DiffViewerPage() {
       <h1 className="text-3xl font-bold mb-6">Data Diff Viewer</h1>
       <p className="mb-4">Viewing changes for dataset: {dataset.name}</p>
       <div className="bg-gray-100 p-4 rounded-md mb-6">
-        <div className="flex justify-between items-center mb-4">
+        <div className="flex justify-between max-[433px]:flex-col max-[433px]:justify-center items-center mb-4">
           <VersionSelector
             versions={dataset.versions}
             selectedVersion={oldVersionId}
