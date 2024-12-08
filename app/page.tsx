@@ -14,7 +14,7 @@ export default function Home() {
           <p className="text-2xl mb-8 max-w-2xl mx-auto text-gray-700">
             Unleash the power of data exploration and analysis
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center max-[433px]:flex-col gap-4">
             <Button asChild size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white animate-float">
               <Link href="/datasets">Explore Datasets <ArrowRight className="ml-2 h-5 w-5" /></Link>
             </Button>
