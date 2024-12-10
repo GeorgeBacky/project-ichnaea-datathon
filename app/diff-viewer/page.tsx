@@ -12,19 +12,19 @@ const mockDatasets = {
     name: 'Population Data 2023',
     format: 'csv' as const,
     versions: [
-      { 
-        id: 'v1', 
-        name: 'Version 1', 
-        date: '2023-05-01', 
+      {
+        id: 'v1',
+        name: 'Version 1',
+        date: '2023-05-01',
         content: `id,name,age,city
 1,John Doe,30,New York
 2,Jane Smith,26,San Francisco
 3,Bob Johnson,35,Chicago`
       },
-      { 
-        id: 'v2', 
-        name: 'Version 2', 
-        date: '2023-05-15', 
+      {
+        id: 'v2',
+        name: 'Version 2',
+        date: '2023-05-15',
         content: `id,name,age,city
 1,John Doe,30,New York
 2,Jane Smith,26,San Francisco
@@ -163,7 +163,7 @@ export default function DiffViewerPage() {
 
     const oldVersion = dataset.versions.find(v => v.id === oldVersionId)
     const newVersion = dataset.versions.find(v => v.id === newVersionId)
-    
+
     if (!oldVersion || !newVersion) {
       setError('Unable to find selected versions')
       return
@@ -220,4 +220,3 @@ export default function DiffViewerPage() {
     </div>
   )
 }
-

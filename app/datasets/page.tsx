@@ -8,9 +8,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Database, Download, FileText } from 'lucide-react'
 
-// Mock data for datasets with additional metadata
 const datasets = [
-  { 
+  {
     id: 'dataset1',
     name: 'Population Data 2023',
     category: 'Demographics',
@@ -22,7 +21,7 @@ const datasets = [
     description: 'Comprehensive population statistics for the year 2023.',
     fileFormat: 'csv'
   },
-  { 
+  {
     id: 'dataset2',
     name: 'Economic Indicators 2023',
     category: 'Economics',
@@ -34,7 +33,7 @@ const datasets = [
     description: 'Key economic indicators and trends for 2023.',
     fileFormat: 'json'
   },
-  { 
+  {
     id: 'dataset3',
     name: 'Climate Change Data 2023',
     category: 'Environment',
@@ -46,7 +45,7 @@ const datasets = [
     description: 'Global climate change metrics and analysis for 2023.',
     fileFormat: 'xml'
   },
-  { 
+  {
     id: 'dataset4',
     name: 'Public Health Statistics 2023',
     category: 'Healthcare',
@@ -66,7 +65,7 @@ export default function DatasetsPage() {
   const router = useRouter()
 
   const filteredDatasets = useMemo(() => {
-    return datasets.filter(dataset => 
+    return datasets.filter(dataset =>
       (categoryFilter === 'All' || dataset.category === categoryFilter) &&
       dataset.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -142,4 +141,3 @@ export default function DatasetsPage() {
     </div>
   )
 }
-

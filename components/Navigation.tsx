@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
-import { Menu, MessageCircle, Twitter, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 const navItems = [
     { name: 'Home', href: '/' },
@@ -14,6 +16,7 @@ const navItems = [
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
+    const pathname = usePathname()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,16 +42,25 @@ const Navigation = () => {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-foreground/80 hover:text-foreground transition-colors"
+                            className="relative text-foreground/80 hover:text-foreground transition-colors py-2"
                         >
                             {item.name}
+                            {pathname === item.href && (
+                                <motion.div
+                                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-600"
+                                    layoutId="underline"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                />
+                            )}
                         </Link>
                     ))}
                 </nav>
 
                 <div className="hidden md:flex items-center gap-4">
                     <Button
-                        className=" text-white font-semibold px-6 rounded-full mt-2"
+                        className="text-white font-semibold px-6 rounded-full mt-2"
                     >
                         Join Us!
                     </Button>
@@ -64,31 +76,43 @@ const Navigation = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div
-                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out rounded-b-3xl ${isOpen ? 'max-h-screen opacity-100 rounded-none' : 'max-h-0 opacity-0'
-                    }`}
+            <motion.div
+                className="md:hidden overflow-hidden rounded-b-3xl"
+                initial={false}
+                animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
                 <nav className="flex flex-col gap-2 px-6 py-4">
                     {navItems.map((item) => (
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-foreground/80 hover:text-foreground transition-colors py-2"
+                            className="relative text-foreground/80 hover:text-foreground transition-colors py-2"
                             onClick={() => setIsOpen(false)}
                         >
                             {item.name}
+                            {pathname === item.href && (
+                                <motion.div
+                                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-purple-600"
+                                    layoutId="underline-mobile"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.3 }}
+                                />
+                            )}
                         </Link>
                     ))}
 
                     <Button
-                        className=" text-white font-semibold px-6 rounded-full mt-2"
+                        className="text-white font-semibold px-6 rounded-full mt-2"
                     >
                         Join Us!
                     </Button>
                 </nav>
-            </div>
+            </motion.div>
         </div>
     )
 }
 
 export default Navigation
+
