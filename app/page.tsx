@@ -60,7 +60,7 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800">Empower Your Data Analysis</h3>
                 <p className="text-gray-600 mb-6">
                   Project Ichnaea provides a comprehensive suite of tools designed to streamline your data exploration and analysis process.
-                  From intuitive dataset navigation to advanced comparison features, we've got you covered.
+                  From intuitive dataset navigation to advanced comparison features, we&apos;ve got you covered.
                 </p>
                 <ul className="space-y-2">
                   {[
@@ -87,7 +87,7 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-semibold mb-4 text-gray-800">Built for Data Professionals</h3>
                 <p className="text-gray-600 mb-6">
-                  Whether you're a data scientist, analyst, or researcher, Project Ichnaea is designed to meet your needs.
+                  Whether you&apos;re a data scientist, analyst, or researcher, Project Ichnaea is designed to meet your needs.
                   Our platform is built with performance and usability in mind, ensuring a smooth experience even with large-scale datasets.
                 </p>
               </div>
